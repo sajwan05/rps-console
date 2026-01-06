@@ -5,8 +5,7 @@ let computerScore = 0;
 function getComputerChoice() {
     const choices = ["Rock", "Paper", "Scissors"];
 
-    let index = Math.floor(Math.random() * 3)
-    console.log(choices[index].toLowerCase());
+    let index = Math.floor(Math.random() * 3);
     return choices[index].toLowerCase();
 }
 
@@ -18,7 +17,6 @@ function getHumanChoice() {
         Rock paper scissors shoot.....`).toLowerCase();
 
     if (choice === "rock" || choice === "scissors" || choice === "paper"){
-        console.log(choice);
         return choice;
     }else {
         console.log("Please enter valid choice");
