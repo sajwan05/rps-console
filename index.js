@@ -14,7 +14,8 @@ function getComputerChoice() {
 function getHumanChoice() {
     const choice = prompt(`This game will play for 5 rounds 
         so keep submitting your choices rock paper or scissors 5 times 
-        and open console to see the result because it is console application`).toLowerCase();
+        and open console to see the result because it is console application
+        Rock paper scissors shoot.....`).toLowerCase();
 
     if (choice === "rock" || choice === "scissors" || choice === "paper"){
         console.log(choice);
