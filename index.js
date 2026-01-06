@@ -12,7 +12,7 @@ function getComputerChoice() {
 
 
 function getHumanChoice() {
-    // const choice = prompt("Rock Paper scissors shoot....").toLowerCase();
+    const choice = prompt("Rock Paper scissors shoot....").toLowerCase();
 
     if (choice === "rock" || choice === "scissors" || choice === "paper"){
         console.log(choice);
@@ -22,25 +22,53 @@ function getHumanChoice() {
     }
 }
 
-let humanChoice = getHumanChoice();
-let computerChoice = getComputerChoice();
 
-let res = playRound(humanChoice, computerChoice);
 
-function playRound(userChoice, botChoice) {
+function playRound(userChoice, botChoice, i) {
     if ((userChoice === "rock" && botChoice === "scissors") || (userChoice === "scissors" && botChoice === "rock") || (userChoice === "paper" && botChoice === "rock") ){
         humanScore++;
-        console.log("You Won this round");
+        console.log(`You won the round ${i}
+            human chose: ${userChoice} and computer chose: ${botChoice}
+            Score after round ${i} : user: ${humanScore} --- Bot: ${computerScore}`);
     }else if(userChoice === botChoice) {
         humanScore++;
         computerScore++;
-        console.log("This round is Tied!")
+        console.log(`Round ${i} Tied!
+            human chose: ${userChoice} and computer chose: ${botChoice}
+            Score after round ${i} : user: ${humanScore} --- Bot: ${computerScore}`);
     }else {
         computerScore++;
-        console.log("You lost");
+        console.log(`You lost the round ${i}
+            human chose: ${userChoice} and computer chose: ${botChoice}
+            Score after round ${i} : user: ${humanScore} --- Bot: ${computerScore}`);
     }
 }
 
 function playGame() {
     
+
+    for (let i = 1; i <= 5; i++){
+        let humanChoice = getHumanChoice();
+        let computerChoice = getComputerChoice();
+
+        let res = playRound(humanChoice, computerChoice, i);
+    }
+
 }
+
+function getWinner() {
+    playGame();
+
+    if (humanScore > computerScore) {
+        console.log(`You won the game 
+            Final Score: User: ${humanScore} ---- ${computerScore}`);
+    }else if(humanScore === computerScore) {
+        console.log(`Game got Tied!
+            Final Score: User: ${humanScore} ---- ${computerScore}`);
+    }else {
+        console.log(`You lost the game!
+            Final Score: User: ${humanScore} ---- ${computerScore}`);
+    }
+}
+
+getWinner();
