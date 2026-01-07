@@ -4,8 +4,8 @@ let humanScore = 0;
 let computerScore = 0;
 function getComputerChoice() {
     const choices = ["Rock", "Paper", "Scissors"];
-
-    let index = Math.floor(Math.random() * 3);
+    const length = choices.length;
+    let index = Math.floor(Math.random() * length);
     return choices[index].toLowerCase();
 }
 
@@ -14,7 +14,7 @@ function getHumanChoice() {
     const choice = prompt(`This game will play for 5 rounds 
         so keep submitting your choices rock paper or scissors 5 times 
         and open console to see the result because it is console application
-        Rock paper scissors shoot.....`).toLowerCase().trim();
+        Rock paper scissors shoot.....`, "rock").toLowerCase().trim();
 
     if (choice === "rock" || choice === "scissors" || choice === "paper"){
         return choice;
@@ -26,7 +26,9 @@ function getHumanChoice() {
 
 
 function playRound(userChoice, botChoice, i) {
-    if ((userChoice === "rock" && botChoice === "scissors") || (userChoice === "scissors" && botChoice === "rock") || (userChoice === "paper" && botChoice === "rock") ){
+    if ((userChoice === "rock" && botChoice === "scissors") || 
+    (userChoice === "scissors" && botChoice === "paper") || 
+    (userChoice === "paper" && botChoice === "rock") ){
         humanScore++;
         console.log(`You won the round ${i}
             human chose: ${userChoice} and computer chose: ${botChoice}
@@ -70,6 +72,9 @@ function getWinner() {
         console.log(`You lost the game!
             Final Score: User: ${humanScore} ---- ${computerScore}`);
     }
+
+    humanScore = 0;
+    computerScore = 0;
 }
 
 getWinner();
