@@ -72,9 +72,6 @@ function getWinner() {
         console.log(`You lost the game!
             Final Score: User: ${humanScore} ---- ${computerScore}`);
     }
-
-    humanScore = 0;
-    computerScore = 0;
 }
 
 getWinner();
