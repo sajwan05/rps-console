@@ -14,6 +14,7 @@ const computerChoice = document.querySelector(".computer");
 const roundResult = document.querySelector(".whoWon");
 const gameResult = document.querySelector(".finalWon");
 const currentScore = document.querySelector(".score");
+const buttons = document.querySelectorAll("button");
 
 function getHumanChoice() {
     const choice = prompt(`This game will play for 5 rounds 
@@ -30,39 +31,46 @@ function getHumanChoice() {
 
 
 
-function playRound(userChoice, botChoice, i) {
+function playRound(userChoice, botChoice) {
     if ((userChoice === "rock" && botChoice === "scissors") || 
     (userChoice === "scissors" && botChoice === "paper") || 
     (userChoice === "paper" && botChoice === "rock") ){
         humanScore++;
-        console.log(`You won the round ${i}
+        console.log(`You won the round
             human chose: ${userChoice} and computer chose: ${botChoice}
-            Score after round ${i} : user: ${humanScore} --- Bot: ${computerScore}`);
+            Scor : user: ${humanScore} --- Bot: ${computerScore}`);
     }else if(userChoice === botChoice) {
         humanScore++;
         computerScore++;
-        console.log(`Round ${i} Tied!
+        console.log(`Tied
             human chose: ${userChoice} and computer chose: ${botChoice}
-            Score after round ${i} : user: ${humanScore} --- Bot: ${computerScore}`);
+            user: ${humanScore} --- Bot: ${computerScore}`);
     }else {
         computerScore++;
-        console.log(`You lost the round ${i}
+        console.log(`You lost the round
             human chose: ${userChoice} and computer chose: ${botChoice}
-            Score after round ${i} : user: ${humanScore} --- Bot: ${computerScore}`);
+            Score after round : user: ${humanScore} --- Bot: ${computerScore}`);
     }
 }
 
-// function playGame() {
-    // 
-// 
-    // for (let i = 1; i <= 5; i++){
-        // let humanChoice = getHumanChoice();
-        // let computerChoice = getComputerChoice();
-// 
-        // let res = playRound(humanChoice, computerChoice, i);
-    // }
-// 
-// }
+buttons.forEach(button => {
+    button.addEventListener("click", (e) => {
+        const humanChoice = e.target.id;
+        
+        const computerChoice = getComputerChoice();
+
+        
+
+        if(humanScore < 5 && computerScore < 5){
+            playRound(humanChoice, computerChoice);
+        }
+
+        if(humanScore === 5 || computerScore === 5) {
+            getWinner();
+        }
+    })
+})
+
 
 function getWinner() {
     playGame();
