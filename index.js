@@ -74,4 +74,4 @@ function getWinner() {
     }
 }
 
-getWinner();
+// getWinner();
