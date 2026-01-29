@@ -39,20 +39,20 @@ function playRound(userChoice, botChoice) {
         roundResult.textContent =`You won the round`;
         humanChoice.textContent = ` ${userChoice}` 
         computerChoice.textContent = `${botChoice}`
-        currentScore.textContent =`user: ${humanScore} --- Bot: ${computerScore}`;
+        currentScore.textContent =`Current-Score user: ${humanScore} --- Bot: ${computerScore}`;
     }else if(userChoice === botChoice) {
         humanScore++;
         computerScore++;
         roundResult.textContent =`This round got Tied`;
         humanChoice.textContent = ` ${userChoice}` 
         computerChoice.textContent = `${botChoice}`
-        currentScore.textContent =`user: ${humanScore} --- Bot: ${computerScore}`;
+        currentScore.textContent =`Current-Score: user: ${humanScore} --- Bot: ${computerScore}`;
     }else {
         computerScore++;
         roundResult.textContent =`This round got Tied`;
         humanChoice.textContent = ` ${userChoice}` 
         computerChoice.textContent = `${botChoice}`
-        currentScore.textContent =`user: ${humanScore} --- Bot: ${computerScore}`;
+        currentScore.textContent =`Current-Score: user: ${humanScore} --- Bot: ${computerScore}`;
     }
 }
 
@@ -76,18 +76,19 @@ buttons.forEach(button => {
 
 
 function getWinner() {
-    playGame();
-
+    gameResult.setAttribute("style", "background: hotpink; font-weight: bold; font-size: 1.5rem; padding: 1rem;")
     if (humanScore > computerScore) {
-        console.log(`You won the game 
-            Final Score: User: ${humanScore} ---- ${computerScore}`);
+        gameResult.textContent = `You won the game 
+            Final Score: User: ${humanScore} ---- Bot: ${computerScore}`;
     }else if(humanScore === computerScore) {
-        console.log(`Game got Tied!
-            Final Score: User: ${humanScore} ---- ${computerScore}`);
+        gameResult.textContent =`Game got Tied!
+            Final Score: User: ${humanScore} ---- Bot: ${computerScore}`;
     }else {
-        console.log(`You lost the game!
-            Final Score: User: ${humanScore} ---- ${computerScore}`);
+        gameResult.textContent = `You lost the game!
+            Final Score: User: ${humanScore} ---- Bot: ${computerScore}`;
     }
+
+    currentScore.textContent = "";
 }
 
 // getWinner();
