@@ -47,17 +47,17 @@ function playRound(userChoice, botChoice, i) {
     }
 }
 
-function playGame() {
-    
-
-    for (let i = 1; i <= 5; i++){
-        let humanChoice = getHumanChoice();
-        let computerChoice = getComputerChoice();
-
-        let res = playRound(humanChoice, computerChoice, i);
-    }
-
-}
+// function playGame() {
+    // 
+// 
+    // for (let i = 1; i <= 5; i++){
+        // let humanChoice = getHumanChoice();
+        // let computerChoice = getComputerChoice();
+// 
+        // let res = playRound(humanChoice, computerChoice, i);
+    // }
+// 
+// }
 
 function getWinner() {
     playGame();
