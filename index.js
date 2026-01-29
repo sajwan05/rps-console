@@ -36,20 +36,23 @@ function playRound(userChoice, botChoice) {
     (userChoice === "scissors" && botChoice === "paper") || 
     (userChoice === "paper" && botChoice === "rock") ){
         humanScore++;
-        console.log(`You won the round
-            human chose: ${userChoice} and computer chose: ${botChoice}
-            Scor : user: ${humanScore} --- Bot: ${computerScore}`);
+        roundResult.textContent =`You won the round`;
+        humanChoice.textContent = ` ${userChoice}` 
+        computerChoice.textContent = `${botChoice}`
+        currentScore.textContent =`user: ${humanScore} --- Bot: ${computerScore}`;
     }else if(userChoice === botChoice) {
         humanScore++;
         computerScore++;
-        console.log(`Tied
-            human chose: ${userChoice} and computer chose: ${botChoice}
-            user: ${humanScore} --- Bot: ${computerScore}`);
+        roundResult.textContent =`This round got Tied`;
+        humanChoice.textContent = ` ${userChoice}` 
+        computerChoice.textContent = `${botChoice}`
+        currentScore.textContent =`user: ${humanScore} --- Bot: ${computerScore}`;
     }else {
         computerScore++;
-        console.log(`You lost the round
-            human chose: ${userChoice} and computer chose: ${botChoice}
-            Score after round : user: ${humanScore} --- Bot: ${computerScore}`);
+        roundResult.textContent =`This round got Tied`;
+        humanChoice.textContent = ` ${userChoice}` 
+        computerChoice.textContent = `${botChoice}`
+        currentScore.textContent =`user: ${humanScore} --- Bot: ${computerScore}`;
     }
 }
 
