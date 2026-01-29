@@ -1,0 +1,15 @@
+.result {
+    display: flex;
+    justify-content: center;
+    /* border: 3px solid red; */
+}
+
+.result > * {
+    flex: 1;
+}
+
+.human, .computer,
+.whoWon {
+    border: 3px solid;
+    min-height: 100px;
+}
