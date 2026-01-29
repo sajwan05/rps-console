@@ -8,7 +8,12 @@ function getComputerChoice() {
     let index = Math.floor(Math.random() * length);
     return choices[index].toLowerCase();
 }
-
+// for result showing up 
+const humanChoice = document.querySelector(".human");
+const computerChoice = document.querySelector(".computer");
+const roundResult = document.querySelector(".whoWon");
+const gameResult = document.querySelector(".finalWon");
+const currentScore = document.querySelector(".score");
 
 function getHumanChoice() {
     const choice = prompt(`This game will play for 5 rounds 
