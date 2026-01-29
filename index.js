@@ -15,6 +15,7 @@ const roundResult = document.querySelector(".whoWon");
 const gameResult = document.querySelector(".finalWon");
 const currentScore = document.querySelector(".score");
 const buttons = document.querySelectorAll("button");
+const btn = document.querySelector(".btn");
 
 function getHumanChoice() {
     const choice = prompt(`This game will play for 5 rounds 
@@ -29,8 +30,9 @@ function getHumanChoice() {
     }
 }
 
-
-
+    humanChoice.setAttribute("style", "font-weight: bold; font-size: 1.23rem;")
+    computerChoice.setAttribute("style", "font-weight: bold; font-size: 1.23rem;")
+    roundResult.setAttribute("style", "text-align: center; line-height: 100px; font-weight:bolder;");
 function playRound(userChoice, botChoice) {
     if ((userChoice === "rock" && botChoice === "scissors") || 
     (userChoice === "scissors" && botChoice === "paper") || 
@@ -72,6 +74,14 @@ buttons.forEach(button => {
             getWinner();
         }
     })
+});
+
+btn.addEventListener("click", (e) => {
+    humanScore = 0;
+    computerScore = 0;
+    roundResult.textContent ="";
+    gameResult.textContent = "";
+    currentScore.textContent = "";
 })
 
 
