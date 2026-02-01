@@ -2,12 +2,14 @@ console.log("Javascript is connected successfully!");
 
 let humanScore = 0;
 let computerScore = 0;
+
 function getComputerChoice() {
     const choices = ["Rock", "Paper", "Scissors"];
     const length = choices.length;
     let index = Math.floor(Math.random() * length);
     return choices[index].toLowerCase();
 }
+
 // for result showing up 
 const humanChoice = document.querySelector(".human");
 const computerChoice = document.querySelector(".computer");
@@ -17,22 +19,21 @@ const currentScore = document.querySelector(".score");
 const buttons = document.querySelectorAll("button");
 const btn = document.querySelector(".btn");
 
-function getHumanChoice() {
-    const choice = prompt(`This game will play for 5 rounds 
-        so keep submitting your choices rock paper or scissors 5 times 
-        and open console to see the result because it is console application
-        Rock paper scissors shoot.....`, "rock").toLowerCase().trim();
+// redundant code
 
-    if (choice === "rock" || choice === "scissors" || choice === "paper"){
-        return choice;
-    }else {
-        console.log("Please enter valid choice");
-    }
-}
+// function getHumanChoice(choice) {
+// 
+    // if (choice === "rock" || choice === "scissors" || choice === "paper"){
+        // return choice;
+    // }else {
+        // console.log("Please enter valid choice");
+    // }
+// }
 
     humanChoice.setAttribute("style", "font-weight: bold; font-size: 1.23rem;")
     computerChoice.setAttribute("style", "font-weight: bold; font-size: 1.23rem;")
     roundResult.setAttribute("style", "text-align: center; line-height: 100px; font-weight:bolder;");
+
 function playRound(userChoice, botChoice) {
     if ((userChoice === "rock" && botChoice === "scissors") || 
     (userChoice === "scissors" && botChoice === "paper") || 
@@ -51,7 +52,7 @@ function playRound(userChoice, botChoice) {
         currentScore.textContent =`Current-Score: user: ${humanScore} --- Bot: ${computerScore}`;
     }else {
         computerScore++;
-        roundResult.textContent =`This round got Tied`;
+        roundResult.textContent =`Alas you lost this round!`;
         humanChoice.textContent = ` ${userChoice}` 
         computerChoice.textContent = `${botChoice}`
         currentScore.textContent =`Current-Score: user: ${humanScore} --- Bot: ${computerScore}`;
@@ -61,10 +62,7 @@ function playRound(userChoice, botChoice) {
 buttons.forEach(button => {
     button.addEventListener("click", (e) => {
         const humanChoice = e.target.id;
-        
         const computerChoice = getComputerChoice();
-
-        
 
         if(humanScore < 5 && computerScore < 5){
             playRound(humanChoice, computerChoice);
@@ -82,6 +80,8 @@ btn.addEventListener("click", (e) => {
     roundResult.textContent ="";
     gameResult.textContent = "";
     currentScore.textContent = "";
+    humanChoice.textContent = "";
+    computerChoice.textContent = "";
 })
 
 
