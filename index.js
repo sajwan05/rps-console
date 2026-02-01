@@ -43,16 +43,19 @@ function playRound(userChoice, botChoice) {
         humanChoice.textContent = ` ${userChoice}` 
         computerChoice.textContent = `${botChoice}`
         currentScore.textContent =`Current-Score user: ${humanScore} --- Bot: ${computerScore}`;
-    }else if(userChoice === botChoice) {
+    }else if((userChoice === "rock" && botChoice === "paper") ||
+            (userChoice === "paper" && botChoice === "scissors") ||
+            (userChoice === "scissors" && botChoice === "rock")) {
+            computerScore++;
+            roundResult.textContent =`Alas you lost this round!`;
+            humanChoice.textContent = ` ${userChoice}` 
+            computerChoice.textContent = `${botChoice}`
+            currentScore.textContent =`Current-Score: user: ${humanScore} --- Bot: ${computerScore}`;
+        
+    }else {
         humanScore++;
         computerScore++;
         roundResult.textContent =`This round got Tied`;
-        humanChoice.textContent = ` ${userChoice}` 
-        computerChoice.textContent = `${botChoice}`
-        currentScore.textContent =`Current-Score: user: ${humanScore} --- Bot: ${computerScore}`;
-    }else {
-        computerScore++;
-        roundResult.textContent =`Alas you lost this round!`;
         humanChoice.textContent = ` ${userChoice}` 
         computerChoice.textContent = `${botChoice}`
         currentScore.textContent =`Current-Score: user: ${humanScore} --- Bot: ${computerScore}`;
@@ -101,4 +104,4 @@ function getWinner() {
     currentScore.textContent = "";
 }
 
-// getWinner();
+// getWinner(); when it was console application
